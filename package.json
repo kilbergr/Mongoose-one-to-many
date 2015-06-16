@@ -1,0 +1,26 @@
+{
+  "name": "Mongoose-one-to-many",
+  "version": "1.0.0",
+  "description": "For this assignment you will need to combine your knowledge of models, and associations to build a zoo application!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kilbergr/Mongoose-one-to-many.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kilbergr/Mongoose-one-to-many/issues"
+  },
+  "homepage": "https://github.com/kilbergr/Mongoose-one-to-many",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "method-override": "^2.3.3",
+    "morgan": "^1.6.0"
+  }
+}
