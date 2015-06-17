@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Animal = require('./animal');
 var zooSchema = new mongoose.Schema ({
 	name: String,
 	location: String, 
@@ -8,7 +9,7 @@ var zooSchema = new mongoose.Schema ({
 	}]
 });
 
-var Animal = require('./animal');
+
 
 zooSchema.pre('remove', function(callback){
 	Animal.remove({zoo_id: this._id}).exec();

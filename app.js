@@ -14,7 +14,7 @@ app.use(morgan('tiny'));
 //Routes for first model: Zoo
 //Root route
 app.get('/', function(req, res){
-	res.redirect('/index');
+	res.redirect('/zoos');
 });
 //Index route
 app.get('/zoos', function(req, res){
@@ -96,54 +96,59 @@ app.delete('/zoos/:id', function(req, res){
 
 //Animals Routes
 //index
-app.get('/zoos/:zoo_id/animals', function(req, res){
-	db.Zoo.findById(req.params.zoo_id)
-	.populate('animals')
-	.exec(function(err, zoo){
-		res.render('animals/index', {zoo:zoo});
-	});
+app.get('/zoos/:zoo_id/animals', function(req,res){
+  db.Zoo.findById(req.params.zoo_id).populate('animals').exec(function(err,zoo){
+    res.render("animals/index", {zoo:zoo});
+  });
 });
+
 //new
-app.get('/zoos/:zoo_id/animals/new', function(req, res){
-	db.Zoo.findById(req.params.zoo_id, function(err, zoo){
-		res.render('animals/new', {zoo:zoo});
-	});
+app.get('/zoos/:zoo_id/animals/new', function (req,res){
+  db.Zoo.findById(req.params.zoo_id,
+    function (err, zoo) {
+      res.render("animals/new", {zoo:zoo});
+    });
 });
+
+
 //create
-app.post('/zoos/:zoo_id/animals', function(req, res){
-	db.Animal.create({name: req.body.name, species: req.body.species, age: req.body.age, photo: req.body.photo}, function(err, animal){
-		if(err){
-			console.log(err);
-			res.render('animals/new');
-		}
-		else{
-			db.Zoo.findById(req.params.zoo_id, function(err, zoo){
-				zoo.animals.push(animal);
-				animal.zoo = zoo._id;
-				animal.save();
-				zoo.save();
-				res.redirect('/zoos/' + req.params.zoo._id + '/animals');
-			});
-		}
-	});
+app.post('/zoos/:zoo_id/animals', function(req,res){
+  db.Animal.create({title:req.body.title}, function(err, animal){
+    console.log(animal)
+    if(err) {
+      console.log(err);
+      res.render("animals/new");
+    }
+    else {
+      db.Zoo.findById(req.params.zoo_id,function(err,zoo){
+        zoo.animals.push(animal);
+        animal.zoo = zoo._id;
+        animal.save();
+        zoo.save();
+        res.redirect("/zoos/"+ req.params.zoo_id +"/animals");
+      });
+    }
+  });
 });
 
 //show
-app.get('/zoos/:zoo_id/animals/:id', function(req, res){
-	db.Animal.findById(req.params.id)
-		.populate('zoo')
-		.exec(function(err, animal){
-			res.render('animals/show', {animal:animal});
-		});
+
+app.get('/zoos/:zoo_id/animals/:id', function(req,res){
+  db.Animal.findById(req.params.id)
+    .populate('zoo')
+    .exec(function(err,animal){
+      console.log(animal.zoo)
+      res.render("animals/show", {animal:animal});
+    });
 });
 
 //edit
-app.get('/zoos/:zoo_id/animals/:id/edit', function(req, res){
-	db.Animal.findById(req.params.id)
-		.populate('zoo')
-		.exec(function(err, animal){
-			res.render('animals/edit', {animal:animal});
-		});
+app.get('/zoos/:zoo_id/animals/:id/edit', function(req,res){
+  db.Animal.findById(req.params.id)
+    .populate('zoo')
+    .exec(function(err,animal){
+      res.render("animals/edit", {animal:animal});
+    });
 });
 
 //update

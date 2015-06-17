@@ -5,10 +5,10 @@
       <form action="/zoos/<%= zoo._id%>?_method=put" method="POST">
       <div>
          <label for="name">Zoo Name:</label>
-         <input autofocus type="text" name="name"value = "<%= zoo.firstName%>">
+         <input autofocus type="text" name="name"value = "<%= zoo.name%>">
        </div>
        <div>
-          <label for="location">Last Name:</label>
+          <label for="location">Location:</label>
           <input autofocus type="text" name="location" value = "<%= zoo.location%>">
         </div>
        <div>

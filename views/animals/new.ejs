@@ -2,7 +2,7 @@
 <h1>It's a new animal's house</h1>
     <p>
 
-      <form action="/zoos" method="POST">
+      <form action="/zoos/<%= zoo.id %>/animals" method="POST">
       <div>
          <label for="name">Name:</label>
          <input autofocus type="text" name="name">
@@ -10,7 +10,7 @@
          <input autofocus type="text" name="species">
         <label for="age">Age:</label>
          <input autofocus type="text" name="age">
-
+        <label for="photo">Photo (URL): <input type="text" name="photo" ></label>
        </div>
        <div>
          <input type="submit" value="Add animal">
@@ -18,4 +18,4 @@
       </form>
     </p>
 
-  <% include ../partials/footer %>
+<% include ../partials/footer %>

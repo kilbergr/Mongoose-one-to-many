@@ -1,10 +1,11 @@
   <% include ../partials/header %>
-  <h1>The inner animal</h1>
+  <h1>Reckon with the animal inside</h1>
     <p>
-      <a href="/zoos/<%= animal.zoo._id%>/animals/<%= animal._id%>/edit">Edit this animal</a>
+     <a href="/zoos/<%= animal.zoo._id%>/animals/<%= animal._id%>/edit">Edit animal</a>
 
-      <%= animal.name%>
-
+      Meet <%= animal.name%>, the <%= animal.age%> year old <%= animal.species%>.
+      <img src="<%= animal.photo %>" width="200px">
+			
       <form action="/zoos/<%= animal.zoo._id%>/animals/<%= animal._id%>?_method=DELETE" method="POST">
         <input type="submit" value="DELETE">
       </form>
