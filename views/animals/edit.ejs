@@ -1,24 +1,23 @@
 <% include ../partials/header %>
 <h1>It's an animal's house</h1>
-    <p>
+    <div>
 
-      <form action="/zoos/<%= animal.zoo.id%>/animals/<%= animal._id%>?_method=put" method="POST">
+ <form action="/zoos/<%= animal.zoo.id%>/animals/<%= animal._id%>?_method=put" method="POST">
       <div>
-         <label for="name">Name:</label>
-         <input autofocus type="text" name="name" value="<%= animal.name%>">
-         <label for="species">Species:</label>
+          <label for="name">Name:
+           <input autofocus type="text" name="name" value="<%= animal.name%>">
+          </label>
+         <label for="species">Species:
          <input autofocus type="text" name="species" value="<%= animal.species%>">
-        <label for="age">Age:</label>
+         </label>
+        <label for="age">Age:
          <input autofocus type="text" name="age" value="<%= animal.age%>">
-         <lable for="photo">Photo URL: 
+         </label>
+         <label for="photo">Photo URL: 
          <input type="text" value = "<%= animal.photo %>" name="photo">
-         </lable>
-
-       </div>
-       <div>
+         </label>
          <input type="submit" value="Update animal">
        </div>
       </form>
-    </p>
 
   <% include ../partials/footer %>
