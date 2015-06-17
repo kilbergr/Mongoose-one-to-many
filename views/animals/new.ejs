@@ -4,14 +4,14 @@
 
       <form action="/zoos/<%= zoo.id %>/animals" method="POST">
       <div>
-         <label for="name">Name:
-         <input autofocus type="text" name="name"></label>
-         <label for="species">Species:
-         <input autofocus type="text" name="species"></label>
-        <label for="age">Age:
-         <input autofocus type="text" name="age">
+         <label for="animal[name]">Name:
+         <input autofocus type="text" name="animal[name]"></label>
+         <label for="animal[species]">Species:
+         <input autofocus type="text" name="animal[species]"></label>
+        <label for="animal[age]">Age:
+         <input autofocus type="text" name="animal[age]">
          </label>
-        <label for="photo">Photo (URL): <input type="text" name="photo" ></label>
+        <label for="animal[photo]">Photo (URL): <input type="text" name="animal[photo]" ></label>
        </div>
        <div>
          <input type="submit" value="Add animal">

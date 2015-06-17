@@ -152,7 +152,7 @@ app.get('/zoos/:zoo_id/animals/:id/edit', function(req,res){
 
 // UPDATE
 app.put('/zoos/:zoo_id/animals/:id', function(req,res){
- db.Animal.findByIdAndUpdate(req.params.id, {title:req.body.title},
+ db.Animal.findByIdAndUpdate(req.params.id, {animal:req.body.animal},
      function (err, animal) {
        if(err) {  
          res.render("animals/edit");
@@ -165,7 +165,7 @@ app.put('/zoos/:zoo_id/animals/:id', function(req,res){
 
 // DESTROY
 app.delete('/zoos/:zoo_id/animals/:id', function(req,res){
- db.Animal.findByIdAndRemove(req.params.id, {title:req.body.title},
+ db.Animal.findByIdAndRemove(req.params.id, {animal:req.body.animal},
       function (err, animal) {
         if(err) {
           console.log(err);
