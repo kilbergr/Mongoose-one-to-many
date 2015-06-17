@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+<h1>It's a new animal's house</h1>
+    <p>
+
+      <form action="/zoos" method="POST">
+      <div>
+         <label for="name">Name:</label>
+         <input autofocus type="text" name="name">
+         <label for="species">Species:</label>
+         <input autofocus type="text" name="species">
+        <label for="age">Age:</label>
+         <input autofocus type="text" name="age">
+
+       </div>
+       <div>
+         <input type="submit" value="Add animal">
+       </div>
+      </form>
+    </p>
+
+  <% include ../partials/footer %>

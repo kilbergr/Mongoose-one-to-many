@@ -1,0 +1,12 @@
+  <% include ../partials/header %>
+  <h1>The inner animal</h1>
+    <p>
+      <a href="/zoos/<%= animal.zoo._id%>/animals/<%= animal._id%>/edit">Edit this animal</a>
+
+      <%= animal.name%>
+
+      <form action="/zoos/<%= animal.zoo._id%>/animals/<%= animal._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE">
+      </form>
+    </p>
+ <% include ../partials/footer %>

@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+<h1>It's an animal's house</h1>
+    <p>
+
+      <form action="/zoos/<%= animal.zoo.id%>/animals/<%= animal._id%>?_method=put" method="POST">
+      <div>
+         <label for="name">Name:</label>
+         <input autofocus type="text" name="name" value="<%= animal.name%>">
+         <label for="species">Species:</label>
+         <input autofocus type="text" name="species" value="<%= animal.species%>">
+        <label for="age">Age:</label>
+         <input autofocus type="text" name="age" value="<%= animal.age%>">
+
+       </div>
+       <div>
+         <input type="submit" value="Update animal">
+       </div>
+      </form>
+    </p>
+
+  <% include ../partials/footer %>

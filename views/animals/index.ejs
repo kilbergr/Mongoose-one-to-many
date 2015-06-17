@@ -1,0 +1,16 @@
+ <% include ../partials/header %>
+  <h1>The animals of <%= zoo.name%> in <%= zoo.location%></h1>
+  <% zoo.animals.forEach(function(animal){ %>
+    <p>
+      <a href="/zoos/<%= zoo._id%>/animals/<%= animal._id%>">See More</a>
+      <%= animal.name%>
+    </p>
+  <% })%>
+  <a href="/zoos/<%= zoo.id%>/animals/new">Add a new one!</a>
+  <p>
+    <a href="/zoos/<%= zoo._id%>/edit">Edit zoo</a>
+  </p>
+  <p>
+    <a href="/zoos">See all zoos evarrrr</a>
+  </p>
+ <% include ../partials/footer %>

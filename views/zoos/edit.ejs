@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+  <h1>Zoo list</h1>
+    <p>
+
+      <form action="/zoos/<%= zoo._id%>?_method=put" method="POST">
+      <div>
+         <label for="name">Zoo Name:</label>
+         <input autofocus type="text" name="name"value = "<%= zoo.firstName%>">
+       </div>
+       <div>
+          <label for="location">Last Name:</label>
+          <input autofocus type="text" name="location" value = "<%= zoo.location%>">
+        </div>
+       <div>
+         <input type="submit" value="Update">
+       </div>
+      </form>
+    </p>
+<% include ../partials/footer %>
